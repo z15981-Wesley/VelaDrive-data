@@ -209,7 +209,10 @@ def main():
     ap.add_argument("--regions", required=True, help="regions.json")
     ap.add_argument("--work", default="work")
     ap.add_argument("--out", default="out")
+    ap.add_argument("--only", default="", help="comma-separated region ids to build (default: all)")
+    ap.add_argument("--part", default="", help="suffix for the partial result file")
     args = ap.parse_args()
+    only = {x for x in args.only.split(",") if x}
 
     regions = json.load(open(args.regions, encoding="utf-8"))
     country = next(c for c in regions["countries"] if c["id"] == args.country)
@@ -221,6 +224,8 @@ def main():
     os.makedirs(args.out, exist_ok=True)
     result = {"id": country["id"], "name": country["name"], "regions": []}
     for region in country["regions"]:
+        if only and region["id"] not in only:
+            continue
         file = f"{country['id']}-{region['id']}.vdp"
         pad = 0.05
         b = region["bbox"]
@@ -232,7 +237,8 @@ def main():
         entry.update(info)
         result["regions"].append(entry)
         print(f"  {region['id']}: {info['bytes'] / 1e6:.1f} MB, {info['ways']} way-tiles, {info['cameras']} cameras", file=sys.stderr)
-    json.dump(result, open(os.path.join(args.out, f"{country['id']}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    name = f"{country['id']}{'-' + args.part if args.part else ''}.part.json"
+    json.dump(result, open(os.path.join(args.out, name), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 
 if __name__ == "__main__":
