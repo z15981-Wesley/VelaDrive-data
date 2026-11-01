@@ -1,0 +1,84 @@
+name: Build offline packs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 2 * *"   # monthly, 2nd day 03:17 UTC
+
+permissions:
+  contents: write
+
+concurrency:
+  group: packs
+  cancel-in-progress: false
+
+jobs:
+  country:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - id: tw
+            sources: asia/taiwan
+          - id: cn
+            sources: asia/china
+          - id: us
+            sources: north-america/us-midwest north-america/us-northeast north-america/us-pacific north-america/us-south north-america/us-west
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install osmium
+        run: sudo apt-get update -q && sudo apt-get install -y -q osmium-tool
+      - name: Download and filter extracts
+        run: |
+          set -euo pipefail
+          mkdir -p filtered geo
+          for src in ${{ matrix.sources }}; do
+            name=$(basename "$src")
+            curl -fsSL --retry 3 -o in.pbf "https://download.geofabrik.de/${src}-latest.osm.pbf"
+            ls -lh in.pbf
+            osmium tags-filter in.pbf w/maxspeed w/maxspeed:forward w/maxspeed:backward n/highway=speed_camera \
+              -o "filtered/${name}.pbf" --overwrite
+            rm in.pbf
+            osmium export "filtered/${name}.pbf" -c osmium-export.json -f geojsonseq \
+              --geometry-types=point,linestring -o "geo/${name}.geojsonseq" --overwrite
+            ls -lh "filtered/${name}.pbf" "geo/${name}.geojsonseq"
+          done
+      - name: Build packs
+        run: python3 scripts/build_packs.py --country ${{ matrix.id }} --input geo/*.geojsonseq --regions regions.json --work work --out out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: packs-${{ matrix.id }}
+          path: out/
+          retention-days: 3
+
+  publish:
+    needs: country
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: packs-*
+          path: out
+          merge-multiple: true
+      - name: Manifest
+        run: |
+          ls -la out
+          python3 scripts/publish.py out
+      - name: Upload to the "packs" release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release view packs >/dev/null 2>&1 || gh release create packs --title "Offline packs" \
+            --notes "Road speed limits and speed cameras for Vela Drive. Data © OpenStreetMap contributors, ODbL 1.0. Rebuilt monthly."
+          gh release upload packs out/*.vdp --clobber
+          gh release upload packs out/manifest.json --clobber
+          # Remove packs that are no longer built.
+          keep=$(cd out && ls *.vdp manifest.json)
+          for asset in $(gh release view packs --json assets -q '.assets[].name'); do
+            echo "$keep" | grep -qx "$asset" || gh release delete-asset packs "$asset" -y
+          done

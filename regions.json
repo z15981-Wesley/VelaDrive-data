@@ -1,0 +1,1224 @@
+{
+ "countries": [
+  {
+   "id": "tw",
+   "name": {
+    "zh-Hant": "台灣",
+    "en": "Taiwan",
+    "ja": "台湾"
+   },
+   "regions": [
+    {
+     "id": "all",
+     "name": {
+      "zh-Hant": "台灣全區（含澎湖、金門、馬祖）",
+      "en": "All of Taiwan (incl. Penghu, Kinmen, Matsu)",
+      "ja": "台湾全域（澎湖・金門・馬祖を含む）"
+     },
+     "bbox": [
+      21.7,
+      118.0,
+      26.5,
+      122.3
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cn",
+   "name": {
+    "zh-Hant": "中國大陸",
+    "en": "Mainland China",
+    "ja": "中国大陸"
+   },
+   "regions": [
+    {
+     "id": "beijing",
+     "name": {
+      "zh-Hant": "北京市",
+      "en": "Beijing",
+      "ja": "北京市"
+     },
+     "bbox": [
+      39.44,
+      115.42,
+      41.06,
+      117.51
+     ]
+    },
+    {
+     "id": "tianjin",
+     "name": {
+      "zh-Hant": "天津市",
+      "en": "Tianjin",
+      "ja": "天津市"
+     },
+     "bbox": [
+      38.56,
+      116.7,
+      40.25,
+      118.06
+     ]
+    },
+    {
+     "id": "hebei",
+     "name": {
+      "zh-Hant": "河北省",
+      "en": "Hebei",
+      "ja": "河北省"
+     },
+     "bbox": [
+      36.05,
+      113.45,
+      42.62,
+      119.85
+     ]
+    },
+    {
+     "id": "shanxi",
+     "name": {
+      "zh-Hant": "山西省",
+      "en": "Shanxi",
+      "ja": "山西省"
+     },
+     "bbox": [
+      34.58,
+      110.23,
+      40.74,
+      114.56
+     ]
+    },
+    {
+     "id": "neimenggu",
+     "name": {
+      "zh-Hant": "內蒙古",
+      "en": "Inner Mongolia",
+      "ja": "内モンゴル"
+     },
+     "bbox": [
+      37.41,
+      97.17,
+      53.34,
+      126.07
+     ]
+    },
+    {
+     "id": "liaoning",
+     "name": {
+      "zh-Hant": "遼寧省",
+      "en": "Liaoning",
+      "ja": "遼寧省"
+     },
+     "bbox": [
+      38.72,
+      118.84,
+      43.49,
+      125.79
+     ]
+    },
+    {
+     "id": "jilin",
+     "name": {
+      "zh-Hant": "吉林省",
+      "en": "Jilin",
+      "ja": "吉林省"
+     },
+     "bbox": [
+      40.86,
+      121.64,
+      46.3,
+      131.32
+     ]
+    },
+    {
+     "id": "heilongjiang",
+     "name": {
+      "zh-Hant": "黑龍江省",
+      "en": "Heilongjiang",
+      "ja": "黒竜江省"
+     },
+     "bbox": [
+      43.42,
+      121.18,
+      53.56,
+      135.09
+     ]
+    },
+    {
+     "id": "shanghai",
+     "name": {
+      "zh-Hant": "上海市",
+      "en": "Shanghai",
+      "ja": "上海市"
+     },
+     "bbox": [
+      30.68,
+      120.85,
+      31.88,
+      122.12
+     ]
+    },
+    {
+     "id": "jiangsu",
+     "name": {
+      "zh-Hant": "江蘇省",
+      "en": "Jiangsu",
+      "ja": "江蘇省"
+     },
+     "bbox": [
+      30.76,
+      116.36,
+      35.13,
+      121.97
+     ]
+    },
+    {
+     "id": "zhejiang",
+     "name": {
+      "zh-Hant": "浙江省",
+      "en": "Zhejiang",
+      "ja": "浙江省"
+     },
+     "bbox": [
+      27.04,
+      118.02,
+      31.18,
+      123.0
+     ]
+    },
+    {
+     "id": "anhui",
+     "name": {
+      "zh-Hant": "安徽省",
+      "en": "Anhui",
+      "ja": "安徽省"
+     },
+     "bbox": [
+      29.4,
+      114.88,
+      34.66,
+      119.65
+     ]
+    },
+    {
+     "id": "fujian",
+     "name": {
+      "zh-Hant": "福建省",
+      "en": "Fujian",
+      "ja": "福建省"
+     },
+     "bbox": [
+      23.5,
+      115.85,
+      28.32,
+      120.72
+     ]
+    },
+    {
+     "id": "jiangxi",
+     "name": {
+      "zh-Hant": "江西省",
+      "en": "Jiangxi",
+      "ja": "江西省"
+     },
+     "bbox": [
+      24.49,
+      113.57,
+      30.08,
+      118.48
+     ]
+    },
+    {
+     "id": "shandong",
+     "name": {
+      "zh-Hant": "山東省",
+      "en": "Shandong",
+      "ja": "山東省"
+     },
+     "bbox": [
+      34.38,
+      114.8,
+      38.4,
+      122.72
+     ]
+    },
+    {
+     "id": "henan",
+     "name": {
+      "zh-Hant": "河南省",
+      "en": "Henan",
+      "ja": "河南省"
+     },
+     "bbox": [
+      31.38,
+      110.35,
+      36.37,
+      116.65
+     ]
+    },
+    {
+     "id": "hubei",
+     "name": {
+      "zh-Hant": "湖北省",
+      "en": "Hubei",
+      "ja": "湖北省"
+     },
+     "bbox": [
+      29.03,
+      108.36,
+      33.28,
+      116.13
+     ]
+    },
+    {
+     "id": "hunan",
+     "name": {
+      "zh-Hant": "湖南省",
+      "en": "Hunan",
+      "ja": "湖南省"
+     },
+     "bbox": [
+      24.64,
+      108.79,
+      30.13,
+      114.26
+     ]
+    },
+    {
+     "id": "guangdong",
+     "name": {
+      "zh-Hant": "廣東省",
+      "en": "Guangdong",
+      "ja": "広東省"
+     },
+     "bbox": [
+      20.22,
+      109.66,
+      25.52,
+      117.32
+     ]
+    },
+    {
+     "id": "guangxi",
+     "name": {
+      "zh-Hant": "廣西",
+      "en": "Guangxi",
+      "ja": "広西"
+     },
+     "bbox": [
+      20.9,
+      104.45,
+      26.39,
+      112.06
+     ]
+    },
+    {
+     "id": "hainan",
+     "name": {
+      "zh-Hant": "海南省",
+      "en": "Hainan",
+      "ja": "海南省"
+     },
+     "bbox": [
+      18.15,
+      108.61,
+      20.17,
+      111.05
+     ]
+    },
+    {
+     "id": "chongqing",
+     "name": {
+      "zh-Hant": "重慶市",
+      "en": "Chongqing",
+      "ja": "重慶市"
+     },
+     "bbox": [
+      28.16,
+      105.29,
+      32.2,
+      110.2
+     ]
+    },
+    {
+     "id": "sichuan",
+     "name": {
+      "zh-Hant": "四川省",
+      "en": "Sichuan",
+      "ja": "四川省"
+     },
+     "bbox": [
+      26.05,
+      97.35,
+      34.32,
+      108.55
+     ]
+    },
+    {
+     "id": "guizhou",
+     "name": {
+      "zh-Hant": "貴州省",
+      "en": "Guizhou",
+      "ja": "貴州省"
+     },
+     "bbox": [
+      24.62,
+      103.6,
+      29.22,
+      109.59
+     ]
+    },
+    {
+     "id": "yunnan",
+     "name": {
+      "zh-Hant": "雲南省",
+      "en": "Yunnan",
+      "ja": "雲南省"
+     },
+     "bbox": [
+      21.14,
+      97.53,
+      29.25,
+      106.2
+     ]
+    },
+    {
+     "id": "xizang",
+     "name": {
+      "zh-Hant": "西藏",
+      "en": "Tibet",
+      "ja": "チベット"
+     },
+     "bbox": [
+      26.85,
+      78.4,
+      36.49,
+      99.12
+     ]
+    },
+    {
+     "id": "shaanxi",
+     "name": {
+      "zh-Hant": "陝西省",
+      "en": "Shaanxi",
+      "ja": "陝西省"
+     },
+     "bbox": [
+      31.71,
+      105.49,
+      39.59,
+      111.25
+     ]
+    },
+    {
+     "id": "gansu",
+     "name": {
+      "zh-Hant": "甘肅省",
+      "en": "Gansu",
+      "ja": "甘粛省"
+     },
+     "bbox": [
+      32.6,
+      92.35,
+      42.8,
+      108.72
+     ]
+    },
+    {
+     "id": "qinghai",
+     "name": {
+      "zh-Hant": "青海省",
+      "en": "Qinghai",
+      "ja": "青海省"
+     },
+     "bbox": [
+      31.6,
+      89.4,
+      39.21,
+      103.07
+     ]
+    },
+    {
+     "id": "ningxia",
+     "name": {
+      "zh-Hant": "寧夏",
+      "en": "Ningxia",
+      "ja": "寧夏"
+     },
+     "bbox": [
+      35.24,
+      104.28,
+      39.39,
+      107.65
+     ]
+    },
+    {
+     "id": "xinjiang",
+     "name": {
+      "zh-Hant": "新疆",
+      "en": "Xinjiang",
+      "ja": "新疆"
+     },
+     "bbox": [
+      34.34,
+      73.5,
+      49.18,
+      96.39
+     ]
+    },
+    {
+     "id": "hongkong",
+     "name": {
+      "zh-Hant": "香港",
+      "en": "Hong Kong",
+      "ja": "香港"
+     },
+     "bbox": [
+      22.15,
+      113.83,
+      22.57,
+      114.44
+     ]
+    },
+    {
+     "id": "macau",
+     "name": {
+      "zh-Hant": "澳門",
+      "en": "Macau",
+      "ja": "マカオ"
+     },
+     "bbox": [
+      22.1,
+      113.52,
+      22.22,
+      113.6
+     ]
+    }
+   ]
+  },
+  {
+   "id": "us",
+   "name": {
+    "zh-Hant": "美國",
+    "en": "United States",
+    "ja": "アメリカ"
+   },
+   "regions": [
+    {
+     "id": "al",
+     "name": {
+      "zh-Hant": "阿拉巴馬州",
+      "en": "Alabama",
+      "ja": "Alabama"
+     },
+     "bbox": [
+      30.14,
+      -88.47,
+      35.01,
+      -84.89
+     ]
+    },
+    {
+     "id": "ak",
+     "name": {
+      "zh-Hant": "阿拉斯加州",
+      "en": "Alaska",
+      "ja": "Alaska"
+     },
+     "bbox": [
+      51.2,
+      -179.15,
+      71.4,
+      -129.98
+     ]
+    },
+    {
+     "id": "az",
+     "name": {
+      "zh-Hant": "亞利桑那州",
+      "en": "Arizona",
+      "ja": "Arizona"
+     },
+     "bbox": [
+      31.33,
+      -114.82,
+      37.0,
+      -109.05
+     ]
+    },
+    {
+     "id": "ar",
+     "name": {
+      "zh-Hant": "阿肯色州",
+      "en": "Arkansas",
+      "ja": "Arkansas"
+     },
+     "bbox": [
+      33.0,
+      -94.62,
+      36.5,
+      -89.64
+     ]
+    },
+    {
+     "id": "ca",
+     "name": {
+      "zh-Hant": "加利福尼亞州",
+      "en": "California",
+      "ja": "California"
+     },
+     "bbox": [
+      32.53,
+      -124.41,
+      42.01,
+      -114.13
+     ]
+    },
+    {
+     "id": "co",
+     "name": {
+      "zh-Hant": "科羅拉多州",
+      "en": "Colorado",
+      "ja": "Colorado"
+     },
+     "bbox": [
+      36.99,
+      -109.06,
+      41.0,
+      -102.04
+     ]
+    },
+    {
+     "id": "ct",
+     "name": {
+      "zh-Hant": "康乃狄克州",
+      "en": "Connecticut",
+      "ja": "Connecticut"
+     },
+     "bbox": [
+      40.98,
+      -73.73,
+      42.05,
+      -71.79
+     ]
+    },
+    {
+     "id": "de",
+     "name": {
+      "zh-Hant": "德拉瓦州",
+      "en": "Delaware",
+      "ja": "Delaware"
+     },
+     "bbox": [
+      38.45,
+      -75.79,
+      39.84,
+      -75.05
+     ]
+    },
+    {
+     "id": "dc",
+     "name": {
+      "zh-Hant": "華盛頓特區",
+      "en": "Washington, D.C.",
+      "ja": "Washington, D.C."
+     },
+     "bbox": [
+      38.79,
+      -77.12,
+      39.0,
+      -76.91
+     ]
+    },
+    {
+     "id": "fl",
+     "name": {
+      "zh-Hant": "佛羅里達州",
+      "en": "Florida",
+      "ja": "Florida"
+     },
+     "bbox": [
+      24.4,
+      -87.63,
+      31.0,
+      -79.97
+     ]
+    },
+    {
+     "id": "ga",
+     "name": {
+      "zh-Hant": "喬治亞州",
+      "en": "Georgia",
+      "ja": "Georgia"
+     },
+     "bbox": [
+      30.36,
+      -85.61,
+      35.0,
+      -80.84
+     ]
+    },
+    {
+     "id": "hi",
+     "name": {
+      "zh-Hant": "夏威夷州",
+      "en": "Hawaii",
+      "ja": "Hawaii"
+     },
+     "bbox": [
+      18.91,
+      -160.25,
+      22.24,
+      -154.81
+     ]
+    },
+    {
+     "id": "id",
+     "name": {
+      "zh-Hant": "愛達荷州",
+      "en": "Idaho",
+      "ja": "Idaho"
+     },
+     "bbox": [
+      41.99,
+      -117.24,
+      49.0,
+      -111.04
+     ]
+    },
+    {
+     "id": "il",
+     "name": {
+      "zh-Hant": "伊利諾州",
+      "en": "Illinois",
+      "ja": "Illinois"
+     },
+     "bbox": [
+      36.97,
+      -91.51,
+      42.51,
+      -87.02
+     ]
+    },
+    {
+     "id": "in",
+     "name": {
+      "zh-Hant": "印第安納州",
+      "en": "Indiana",
+      "ja": "Indiana"
+     },
+     "bbox": [
+      37.77,
+      -88.1,
+      41.76,
+      -84.78
+     ]
+    },
+    {
+     "id": "ia",
+     "name": {
+      "zh-Hant": "愛荷華州",
+      "en": "Iowa",
+      "ja": "Iowa"
+     },
+     "bbox": [
+      40.38,
+      -96.64,
+      43.5,
+      -90.14
+     ]
+    },
+    {
+     "id": "ks",
+     "name": {
+      "zh-Hant": "堪薩斯州",
+      "en": "Kansas",
+      "ja": "Kansas"
+     },
+     "bbox": [
+      36.99,
+      -102.05,
+      40.0,
+      -94.59
+     ]
+    },
+    {
+     "id": "ky",
+     "name": {
+      "zh-Hant": "肯塔基州",
+      "en": "Kentucky",
+      "ja": "Kentucky"
+     },
+     "bbox": [
+      36.5,
+      -89.57,
+      39.15,
+      -81.96
+     ]
+    },
+    {
+     "id": "la",
+     "name": {
+      "zh-Hant": "路易斯安那州",
+      "en": "Louisiana",
+      "ja": "Louisiana"
+     },
+     "bbox": [
+      28.93,
+      -94.04,
+      33.02,
+      -88.82
+     ]
+    },
+    {
+     "id": "me",
+     "name": {
+      "zh-Hant": "緬因州",
+      "en": "Maine",
+      "ja": "Maine"
+     },
+     "bbox": [
+      42.98,
+      -71.08,
+      47.46,
+      -66.95
+     ]
+    },
+    {
+     "id": "md",
+     "name": {
+      "zh-Hant": "馬里蘭州",
+      "en": "Maryland",
+      "ja": "Maryland"
+     },
+     "bbox": [
+      37.91,
+      -79.49,
+      39.72,
+      -75.05
+     ]
+    },
+    {
+     "id": "ma",
+     "name": {
+      "zh-Hant": "麻薩諸塞州",
+      "en": "Massachusetts",
+      "ja": "Massachusetts"
+     },
+     "bbox": [
+      41.24,
+      -73.51,
+      42.89,
+      -69.93
+     ]
+    },
+    {
+     "id": "mi",
+     "name": {
+      "zh-Hant": "密西根州",
+      "en": "Michigan",
+      "ja": "Michigan"
+     },
+     "bbox": [
+      41.7,
+      -90.42,
+      48.31,
+      -82.41
+     ]
+    },
+    {
+     "id": "mn",
+     "name": {
+      "zh-Hant": "明尼蘇達州",
+      "en": "Minnesota",
+      "ja": "Minnesota"
+     },
+     "bbox": [
+      43.5,
+      -97.24,
+      49.38,
+      -89.49
+     ]
+    },
+    {
+     "id": "ms",
+     "name": {
+      "zh-Hant": "密西西比州",
+      "en": "Mississippi",
+      "ja": "Mississippi"
+     },
+     "bbox": [
+      30.17,
+      -91.66,
+      35.0,
+      -88.1
+     ]
+    },
+    {
+     "id": "mo",
+     "name": {
+      "zh-Hant": "密蘇里州",
+      "en": "Missouri",
+      "ja": "Missouri"
+     },
+     "bbox": [
+      35.99,
+      -95.77,
+      40.61,
+      -89.1
+     ]
+    },
+    {
+     "id": "mt",
+     "name": {
+      "zh-Hant": "蒙大拿州",
+      "en": "Montana",
+      "ja": "Montana"
+     },
+     "bbox": [
+      44.36,
+      -116.05,
+      49.0,
+      -104.04
+     ]
+    },
+    {
+     "id": "ne",
+     "name": {
+      "zh-Hant": "內布拉斯加州",
+      "en": "Nebraska",
+      "ja": "Nebraska"
+     },
+     "bbox": [
+      40.0,
+      -104.05,
+      43.0,
+      -95.31
+     ]
+    },
+    {
+     "id": "nv",
+     "name": {
+      "zh-Hant": "內華達州",
+      "en": "Nevada",
+      "ja": "Nevada"
+     },
+     "bbox": [
+      35.0,
+      -120.01,
+      42.0,
+      -114.04
+     ]
+    },
+    {
+     "id": "nh",
+     "name": {
+      "zh-Hant": "新罕布夏州",
+      "en": "New Hampshire",
+      "ja": "New Hampshire"
+     },
+     "bbox": [
+      42.7,
+      -72.56,
+      45.31,
+      -70.61
+     ]
+    },
+    {
+     "id": "nj",
+     "name": {
+      "zh-Hant": "紐澤西州",
+      "en": "New Jersey",
+      "ja": "New Jersey"
+     },
+     "bbox": [
+      38.93,
+      -75.56,
+      41.36,
+      -73.89
+     ]
+    },
+    {
+     "id": "nm",
+     "name": {
+      "zh-Hant": "新墨西哥州",
+      "en": "New Mexico",
+      "ja": "New Mexico"
+     },
+     "bbox": [
+      31.33,
+      -109.05,
+      37.0,
+      -103.0
+     ]
+    },
+    {
+     "id": "ny",
+     "name": {
+      "zh-Hant": "紐約州",
+      "en": "New York",
+      "ja": "New York"
+     },
+     "bbox": [
+      40.5,
+      -79.76,
+      45.02,
+      -71.86
+     ]
+    },
+    {
+     "id": "nc",
+     "name": {
+      "zh-Hant": "北卡羅來納州",
+      "en": "North Carolina",
+      "ja": "North Carolina"
+     },
+     "bbox": [
+      33.84,
+      -84.32,
+      36.59,
+      -75.46
+     ]
+    },
+    {
+     "id": "nd",
+     "name": {
+      "zh-Hant": "北達科他州",
+      "en": "North Dakota",
+      "ja": "North Dakota"
+     },
+     "bbox": [
+      45.94,
+      -104.05,
+      49.0,
+      -96.55
+     ]
+    },
+    {
+     "id": "oh",
+     "name": {
+      "zh-Hant": "俄亥俄州",
+      "en": "Ohio",
+      "ja": "Ohio"
+     },
+     "bbox": [
+      38.4,
+      -84.82,
+      41.98,
+      -80.52
+     ]
+    },
+    {
+     "id": "ok",
+     "name": {
+      "zh-Hant": "奧克拉荷馬州",
+      "en": "Oklahoma",
+      "ja": "Oklahoma"
+     },
+     "bbox": [
+      33.62,
+      -103.0,
+      37.0,
+      -94.43
+     ]
+    },
+    {
+     "id": "or",
+     "name": {
+      "zh-Hant": "奧勒岡州",
+      "en": "Oregon",
+      "ja": "Oregon"
+     },
+     "bbox": [
+      41.99,
+      -124.57,
+      46.29,
+      -116.46
+     ]
+    },
+    {
+     "id": "pa",
+     "name": {
+      "zh-Hant": "賓夕法尼亞州",
+      "en": "Pennsylvania",
+      "ja": "Pennsylvania"
+     },
+     "bbox": [
+      39.72,
+      -80.52,
+      42.27,
+      -74.69
+     ]
+    },
+    {
+     "id": "ri",
+     "name": {
+      "zh-Hant": "羅德島州",
+      "en": "Rhode Island",
+      "ja": "Rhode Island"
+     },
+     "bbox": [
+      41.15,
+      -71.86,
+      42.02,
+      -71.12
+     ]
+    },
+    {
+     "id": "sc",
+     "name": {
+      "zh-Hant": "南卡羅來納州",
+      "en": "South Carolina",
+      "ja": "South Carolina"
+     },
+     "bbox": [
+      32.03,
+      -83.35,
+      35.22,
+      -78.54
+     ]
+    },
+    {
+     "id": "sd",
+     "name": {
+      "zh-Hant": "南達科他州",
+      "en": "South Dakota",
+      "ja": "South Dakota"
+     },
+     "bbox": [
+      42.48,
+      -104.06,
+      45.95,
+      -96.44
+     ]
+    },
+    {
+     "id": "tn",
+     "name": {
+      "zh-Hant": "田納西州",
+      "en": "Tennessee",
+      "ja": "Tennessee"
+     },
+     "bbox": [
+      34.98,
+      -90.31,
+      36.68,
+      -81.65
+     ]
+    },
+    {
+     "id": "tx",
+     "name": {
+      "zh-Hant": "德克薩斯州",
+      "en": "Texas",
+      "ja": "Texas"
+     },
+     "bbox": [
+      25.84,
+      -106.65,
+      36.5,
+      -93.51
+     ]
+    },
+    {
+     "id": "ut",
+     "name": {
+      "zh-Hant": "猶他州",
+      "en": "Utah",
+      "ja": "Utah"
+     },
+     "bbox": [
+      37.0,
+      -114.05,
+      42.0,
+      -109.04
+     ]
+    },
+    {
+     "id": "vt",
+     "name": {
+      "zh-Hant": "佛蒙特州",
+      "en": "Vermont",
+      "ja": "Vermont"
+     },
+     "bbox": [
+      42.73,
+      -73.44,
+      45.02,
+      -71.46
+     ]
+    },
+    {
+     "id": "va",
+     "name": {
+      "zh-Hant": "維吉尼亞州",
+      "en": "Virginia",
+      "ja": "Virginia"
+     },
+     "bbox": [
+      36.54,
+      -83.68,
+      39.47,
+      -75.24
+     ]
+    },
+    {
+     "id": "wa",
+     "name": {
+      "zh-Hant": "華盛頓州",
+      "en": "Washington",
+      "ja": "Washington"
+     },
+     "bbox": [
+      45.54,
+      -124.85,
+      49.0,
+      -116.92
+     ]
+    },
+    {
+     "id": "wv",
+     "name": {
+      "zh-Hant": "西維吉尼亞州",
+      "en": "West Virginia",
+      "ja": "West Virginia"
+     },
+     "bbox": [
+      37.2,
+      -82.64,
+      40.64,
+      -77.72
+     ]
+    },
+    {
+     "id": "wi",
+     "name": {
+      "zh-Hant": "威斯康辛州",
+      "en": "Wisconsin",
+      "ja": "Wisconsin"
+     },
+     "bbox": [
+      42.49,
+      -92.89,
+      47.08,
+      -86.25
+     ]
+    },
+    {
+     "id": "wy",
+     "name": {
+      "zh-Hant": "懷俄明州",
+      "en": "Wyoming",
+      "ja": "Wyoming"
+     },
+     "bbox": [
+      40.99,
+      -111.06,
+      45.01,
+      -104.05
+     ]
+    }
+   ]
+  }
+ ]
+}
