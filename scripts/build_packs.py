@@ -131,7 +131,8 @@ class TileStore:
             yield (int(a), int(b))
 
 
-def ingest(store, path):
+def ingest(store, path, cameras=True):
+    """cameras=False: speed limits only (countries where camera warnings are not allowed)."""
     ways = cams = 0
     with open(path, "r", encoding="utf-8") as f:
         for line in f:
@@ -145,7 +146,7 @@ def ingest(store, path):
             if isinstance(osm_id, str):
                 osm_id = int(re.sub(r"\D", "", osm_id) or 0)
             if geom.get("type") == "Point":
-                if props.get("highway") != "speed_camera":
+                if props.get("highway") != "speed_camera" or not cameras:
                     continue
                 lon, lat = geom["coordinates"][:2]
                 store.add(tile_key(lat, lon), camera_record(props, lat, lon, osm_id), 1)
@@ -217,8 +218,11 @@ def main():
     regions = json.load(open(args.regions, encoding="utf-8"))
     country = next(c for c in regions["countries"] if c["id"] == args.country)
     store = TileStore(os.path.join(args.work, args.country))
+    cameras = country.get("cameras", True)
+    if not cameras:
+        print(f"{args.country}: speed cameras left out (not allowed there)", file=sys.stderr)
     for path in args.input:
-        w, k = ingest(store, path)
+        w, k = ingest(store, path, cameras)
         print(f"{path}: {w} ways, {k} cameras", file=sys.stderr)
     # Counts are only exact within this run; reload from disk if resumed.
     os.makedirs(args.out, exist_ok=True)

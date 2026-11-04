@@ -76,6 +76,16 @@ jobs:
           - { country: us, part: wv, only: "wv", source: north-america/us/west-virginia }
           - { country: us, part: wi, only: "wi", source: north-america/us/wisconsin }
           - { country: us, part: wy, only: "wy", source: north-america/us/wyoming }
+          - { country: kr, part: all, only: "", source: asia/south-korea }
+          - { country: gb, part: all, only: "", source: europe/united-kingdom }
+          - { country: no, part: all, only: "", source: europe/norway }
+          - { country: tr, part: all, only: "", source: europe/turkey }
+          - { country: au, part: all, only: "", source: australia-oceania/australia }
+          - { country: fr, part: all, only: "", source: europe/france }
+          - { country: de, part: all, only: "", source: europe/germany }
+          - { country: ca, part: all, only: "", source: north-america/canada }
+          - { country: nl, part: all, only: "", source: europe/netherlands }
+          - { country: es, part: all, only: "", source: europe/spain }
     runs-on: ubuntu-latest
     timeout-minutes: 300
     env:

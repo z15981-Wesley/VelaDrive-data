@@ -1219,6 +1219,935 @@
      ]
     }
    ]
+  },
+  {
+   "id": "kr",
+   "name": {
+    "zh-Hant": "南韓",
+    "en": "South Korea",
+    "ja": "韓国"
+   },
+   "regions": [
+    {
+     "id": "all",
+     "name": {
+      "zh-Hant": "南韓全區（含濟州島）",
+      "en": "All of South Korea (incl. Jeju)",
+      "ja": "韓国全域（済州島を含む）"
+     },
+     "bbox": [
+      33.0,
+      124.5,
+      38.7,
+      132.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gb",
+   "name": {
+    "zh-Hant": "英國",
+    "en": "United Kingdom",
+    "ja": "イギリス"
+   },
+   "regions": [
+    {
+     "id": "england",
+     "name": {
+      "zh-Hant": "英格蘭",
+      "en": "England",
+      "ja": "イングランド"
+     },
+     "bbox": [
+      49.85,
+      -6.45,
+      55.82,
+      1.77
+     ]
+    },
+    {
+     "id": "scotland",
+     "name": {
+      "zh-Hant": "蘇格蘭",
+      "en": "Scotland",
+      "ja": "スコットランド"
+     },
+     "bbox": [
+      54.6,
+      -8.7,
+      60.9,
+      -0.7
+     ]
+    },
+    {
+     "id": "wales",
+     "name": {
+      "zh-Hant": "威爾斯",
+      "en": "Wales",
+      "ja": "ウェールズ"
+     },
+     "bbox": [
+      51.35,
+      -5.4,
+      53.45,
+      -2.6
+     ]
+    },
+    {
+     "id": "northern-ireland",
+     "name": {
+      "zh-Hant": "北愛爾蘭",
+      "en": "Northern Ireland",
+      "ja": "北アイルランド"
+     },
+     "bbox": [
+      54.0,
+      -8.2,
+      55.35,
+      -5.4
+     ]
+    }
+   ]
+  },
+  {
+   "id": "no",
+   "name": {
+    "zh-Hant": "挪威",
+    "en": "Norway",
+    "ja": "ノルウェー"
+   },
+   "regions": [
+    {
+     "id": "south",
+     "name": {
+      "zh-Hant": "挪威南部（特倫汗以南）",
+      "en": "Southern Norway (Trondheim and south)",
+      "ja": "ノルウェー南部（トロンハイム以南）"
+     },
+     "bbox": [
+      57.9,
+      4.5,
+      64.0,
+      12.9
+     ]
+    },
+    {
+     "id": "north",
+     "name": {
+      "zh-Hant": "挪威北部",
+      "en": "Northern Norway",
+      "ja": "ノルウェー北部"
+     },
+     "bbox": [
+      64.0,
+      10.5,
+      71.3,
+      31.2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tr",
+   "name": {
+    "zh-Hant": "土耳其",
+    "en": "Türkiye",
+    "ja": "トルコ"
+   },
+   "cameras": false,
+   "regions": [
+    {
+     "id": "all",
+     "name": {
+      "zh-Hant": "土耳其全區（僅道路速限）",
+      "en": "All of Türkiye (speed limits only)",
+      "ja": "トルコ全域（制限速度のみ）"
+     },
+     "bbox": [
+      35.8,
+      25.6,
+      42.2,
+      44.9
+     ]
+    }
+   ]
+  },
+  {
+   "id": "au",
+   "name": {
+    "zh-Hant": "澳洲",
+    "en": "Australia",
+    "ja": "オーストラリア"
+   },
+   "regions": [
+    {
+     "id": "nsw",
+     "name": {
+      "zh-Hant": "新南威爾斯（含坎培拉）",
+      "en": "New South Wales (incl. ACT)",
+      "ja": "ニューサウスウェールズ（ACTを含む）"
+     },
+     "bbox": [
+      -37.6,
+      140.9,
+      -28.1,
+      153.7
+     ]
+    },
+    {
+     "id": "vic",
+     "name": {
+      "zh-Hant": "維多利亞",
+      "en": "Victoria",
+      "ja": "ビクトリア"
+     },
+     "bbox": [
+      -39.2,
+      140.9,
+      -33.9,
+      150.0
+     ]
+    },
+    {
+     "id": "qld",
+     "name": {
+      "zh-Hant": "昆士蘭",
+      "en": "Queensland",
+      "ja": "クイーンズランド"
+     },
+     "bbox": [
+      -29.2,
+      137.9,
+      -9.1,
+      153.6
+     ]
+    },
+    {
+     "id": "wa",
+     "name": {
+      "zh-Hant": "西澳",
+      "en": "Western Australia",
+      "ja": "西オーストラリア"
+     },
+     "bbox": [
+      -35.2,
+      112.9,
+      -13.6,
+      129.0
+     ]
+    },
+    {
+     "id": "sa",
+     "name": {
+      "zh-Hant": "南澳",
+      "en": "South Australia",
+      "ja": "南オーストラリア"
+     },
+     "bbox": [
+      -38.1,
+      129.0,
+      -25.9,
+      141.0
+     ]
+    },
+    {
+     "id": "tas",
+     "name": {
+      "zh-Hant": "塔斯馬尼亞",
+      "en": "Tasmania",
+      "ja": "タスマニア"
+     },
+     "bbox": [
+      -43.7,
+      143.8,
+      -39.5,
+      148.5
+     ]
+    },
+    {
+     "id": "nt",
+     "name": {
+      "zh-Hant": "北領地",
+      "en": "Northern Territory",
+      "ja": "ノーザンテリトリー"
+     },
+     "bbox": [
+      -26.0,
+      129.0,
+      -10.9,
+      138.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fr",
+   "name": {
+    "zh-Hant": "法國",
+    "en": "France",
+    "ja": "フランス"
+   },
+   "cameras": false,
+   "regions": [
+    {
+     "id": "ile-de-france",
+     "name": {
+      "zh-Hant": "法蘭西島（巴黎）",
+      "en": "Île-de-France (Paris)",
+      "ja": "イル＝ド＝フランス（パリ）"
+     },
+     "bbox": [
+      48.1,
+      1.4,
+      49.25,
+      3.6
+     ]
+    },
+    {
+     "id": "auvergne-rhone-alpes",
+     "name": {
+      "zh-Hant": "奧弗涅－隆河－阿爾卑斯",
+      "en": "Auvergne-Rhône-Alpes",
+      "ja": "オーヴェルニュ＝ローヌ＝アルプ"
+     },
+     "bbox": [
+      44.1,
+      2.05,
+      46.82,
+      7.2
+     ]
+    },
+    {
+     "id": "bourgogne-franche-comte",
+     "name": {
+      "zh-Hant": "勃艮第－法蘭琪－康堤",
+      "en": "Bourgogne-Franche-Comté",
+      "ja": "ブルゴーニュ＝フランシュ＝コンテ"
+     },
+     "bbox": [
+      46.15,
+      2.84,
+      48.41,
+      7.15
+     ]
+    },
+    {
+     "id": "bretagne",
+     "name": {
+      "zh-Hant": "布列塔尼",
+      "en": "Bretagne",
+      "ja": "ブルターニュ"
+     },
+     "bbox": [
+      47.27,
+      -5.2,
+      48.9,
+      -1.0
+     ]
+    },
+    {
+     "id": "centre-val-de-loire",
+     "name": {
+      "zh-Hant": "中央－羅亞爾河谷",
+      "en": "Centre-Val de Loire",
+      "ja": "サントル＝ヴァル・ド・ロワール"
+     },
+     "bbox": [
+      46.34,
+      0.05,
+      48.95,
+      3.13
+     ]
+    },
+    {
+     "id": "grand-est",
+     "name": {
+      "zh-Hant": "大東部",
+      "en": "Grand Est",
+      "ja": "グラン・テスト"
+     },
+     "bbox": [
+      47.42,
+      3.38,
+      50.17,
+      8.24
+     ]
+    },
+    {
+     "id": "hauts-de-france",
+     "name": {
+      "zh-Hant": "上法蘭西",
+      "en": "Hauts-de-France",
+      "ja": "オー＝ド＝フランス"
+     },
+     "bbox": [
+      48.83,
+      1.37,
+      51.09,
+      4.26
+     ]
+    },
+    {
+     "id": "normandie",
+     "name": {
+      "zh-Hant": "諾曼第",
+      "en": "Normandie",
+      "ja": "ノルマンディー"
+     },
+     "bbox": [
+      48.18,
+      -1.95,
+      50.08,
+      1.81
+     ]
+    },
+    {
+     "id": "nouvelle-aquitaine",
+     "name": {
+      "zh-Hant": "新亞奎丹",
+      "en": "Nouvelle-Aquitaine",
+      "ja": "ヌーヴェル＝アキテーヌ"
+     },
+     "bbox": [
+      42.77,
+      -1.8,
+      47.18,
+      2.62
+     ]
+    },
+    {
+     "id": "occitanie",
+     "name": {
+      "zh-Hant": "奧克西塔尼",
+      "en": "Occitanie",
+      "ja": "オクシタニー"
+     },
+     "bbox": [
+      42.33,
+      -0.33,
+      45.05,
+      4.85
+     ]
+    },
+    {
+     "id": "pays-de-la-loire",
+     "name": {
+      "zh-Hant": "羅亞爾河地區",
+      "en": "Pays de la Loire",
+      "ja": "ペイ・ド・ラ・ロワール"
+     },
+     "bbox": [
+      46.26,
+      -2.65,
+      48.57,
+      0.92
+     ]
+    },
+    {
+     "id": "provence-alpes-cote-d-azur",
+     "name": {
+      "zh-Hant": "普羅旺斯－阿爾卑斯－蔚藍海岸",
+      "en": "Provence-Alpes-Côte d'Azur",
+      "ja": "プロヴァンス＝アルプ＝コート・ダジュール"
+     },
+     "bbox": [
+      42.98,
+      4.23,
+      45.13,
+      7.72
+     ]
+    },
+    {
+     "id": "corse",
+     "name": {
+      "zh-Hant": "科西嘉",
+      "en": "Corse",
+      "ja": "コルシカ"
+     },
+     "bbox": [
+      41.33,
+      8.53,
+      43.03,
+      9.57
+     ]
+    }
+   ]
+  },
+  {
+   "id": "de",
+   "name": {
+    "zh-Hant": "德國",
+    "en": "Germany",
+    "ja": "ドイツ"
+   },
+   "cameras": false,
+   "regions": [
+    {
+     "id": "bw",
+     "name": {
+      "zh-Hant": "巴登－符騰堡",
+      "en": "Baden-Württemberg",
+      "ja": "バーデン＝ヴュルテンベルク"
+     },
+     "bbox": [
+      47.53,
+      7.51,
+      49.79,
+      10.5
+     ]
+    },
+    {
+     "id": "by",
+     "name": {
+      "zh-Hant": "巴伐利亞",
+      "en": "Bayern",
+      "ja": "バイエルン"
+     },
+     "bbox": [
+      47.27,
+      8.97,
+      50.57,
+      13.84
+     ]
+    },
+    {
+     "id": "be",
+     "name": {
+      "zh-Hant": "柏林",
+      "en": "Berlin",
+      "ja": "ベルリン"
+     },
+     "bbox": [
+      52.33,
+      13.08,
+      52.68,
+      13.77
+     ]
+    },
+    {
+     "id": "bb",
+     "name": {
+      "zh-Hant": "布蘭登堡",
+      "en": "Brandenburg",
+      "ja": "ブランデンブルク"
+     },
+     "bbox": [
+      51.36,
+      11.26,
+      53.56,
+      14.77
+     ]
+    },
+    {
+     "id": "hb",
+     "name": {
+      "zh-Hant": "不來梅",
+      "en": "Bremen",
+      "ja": "ブレーメン"
+     },
+     "bbox": [
+      53.01,
+      8.48,
+      53.61,
+      8.99
+     ]
+    },
+    {
+     "id": "hh",
+     "name": {
+      "zh-Hant": "漢堡",
+      "en": "Hamburg",
+      "ja": "ハンブルク"
+     },
+     "bbox": [
+      53.39,
+      8.42,
+      53.97,
+      10.33
+     ]
+    },
+    {
+     "id": "he",
+     "name": {
+      "zh-Hant": "黑森",
+      "en": "Hessen",
+      "ja": "ヘッセン"
+     },
+     "bbox": [
+      49.39,
+      7.77,
+      51.66,
+      10.24
+     ]
+    },
+    {
+     "id": "mv",
+     "name": {
+      "zh-Hant": "梅克倫堡－前波美拉尼亞",
+      "en": "Mecklenburg-Vorpommern",
+      "ja": "メクレンブルク＝フォアポンメルン"
+     },
+     "bbox": [
+      53.11,
+      10.59,
+      54.69,
+      14.41
+     ]
+    },
+    {
+     "id": "ni",
+     "name": {
+      "zh-Hant": "下薩克森",
+      "en": "Niedersachsen",
+      "ja": "ニーダーザクセン"
+     },
+     "bbox": [
+      51.29,
+      6.65,
+      53.89,
+      11.6
+     ]
+    },
+    {
+     "id": "nw",
+     "name": {
+      "zh-Hant": "北萊茵－西發利亞",
+      "en": "Nordrhein-Westfalen",
+      "ja": "ノルトライン＝ヴェストファーレン"
+     },
+     "bbox": [
+      50.32,
+      5.86,
+      52.53,
+      9.46
+     ]
+    },
+    {
+     "id": "rp",
+     "name": {
+      "zh-Hant": "萊茵蘭－普法茲",
+      "en": "Rheinland-Pfalz",
+      "ja": "ラインラント＝プファルツ"
+     },
+     "bbox": [
+      48.97,
+      6.11,
+      50.94,
+      8.51
+     ]
+    },
+    {
+     "id": "sl",
+     "name": {
+      "zh-Hant": "薩爾",
+      "en": "Saarland",
+      "ja": "ザールラント"
+     },
+     "bbox": [
+      49.11,
+      6.36,
+      49.64,
+      7.4
+     ]
+    },
+    {
+     "id": "sn",
+     "name": {
+      "zh-Hant": "薩克森",
+      "en": "Sachsen",
+      "ja": "ザクセン"
+     },
+     "bbox": [
+      50.17,
+      11.87,
+      51.69,
+      15.04
+     ]
+    },
+    {
+     "id": "st",
+     "name": {
+      "zh-Hant": "薩克森－安哈特",
+      "en": "Sachsen-Anhalt",
+      "ja": "ザクセン＝アンハルト"
+     },
+     "bbox": [
+      50.94,
+      10.56,
+      53.04,
+      13.19
+     ]
+    },
+    {
+     "id": "sh",
+     "name": {
+      "zh-Hant": "什列斯威－好斯敦",
+      "en": "Schleswig-Holstein",
+      "ja": "シュレースヴィヒ＝ホルシュタイン"
+     },
+     "bbox": [
+      53.36,
+      7.87,
+      55.06,
+      11.31
+     ]
+    },
+    {
+     "id": "th",
+     "name": {
+      "zh-Hant": "圖林根",
+      "en": "Thüringen",
+      "ja": "テューリンゲン"
+     },
+     "bbox": [
+      50.2,
+      9.88,
+      51.65,
+      12.65
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ca",
+   "name": {
+    "zh-Hant": "加拿大",
+    "en": "Canada",
+    "ja": "カナダ"
+   },
+   "regions": [
+    {
+     "id": "on",
+     "name": {
+      "zh-Hant": "安大略",
+      "en": "Ontario",
+      "ja": "オンタリオ"
+     },
+     "bbox": [
+      41.67,
+      -95.16,
+      56.86,
+      -74.32
+     ]
+    },
+    {
+     "id": "qc",
+     "name": {
+      "zh-Hant": "魁北克",
+      "en": "Québec",
+      "ja": "ケベック"
+     },
+     "bbox": [
+      44.99,
+      -79.77,
+      62.59,
+      -57.1
+     ]
+    },
+    {
+     "id": "bc",
+     "name": {
+      "zh-Hant": "卑詩",
+      "en": "British Columbia",
+      "ja": "ブリティッシュコロンビア"
+     },
+     "bbox": [
+      48.3,
+      -139.06,
+      60.0,
+      -114.03
+     ]
+    },
+    {
+     "id": "ab",
+     "name": {
+      "zh-Hant": "亞伯達",
+      "en": "Alberta",
+      "ja": "アルバータ"
+     },
+     "bbox": [
+      49.0,
+      -120.0,
+      60.0,
+      -110.0
+     ]
+    },
+    {
+     "id": "sk",
+     "name": {
+      "zh-Hant": "薩斯喀徹溫",
+      "en": "Saskatchewan",
+      "ja": "サスカチュワン"
+     },
+     "bbox": [
+      49.0,
+      -110.0,
+      60.0,
+      -101.36
+     ]
+    },
+    {
+     "id": "mb",
+     "name": {
+      "zh-Hant": "曼尼托巴",
+      "en": "Manitoba",
+      "ja": "マニトバ"
+     },
+     "bbox": [
+      49.0,
+      -102.03,
+      60.0,
+      -88.94
+     ]
+    },
+    {
+     "id": "ns",
+     "name": {
+      "zh-Hant": "新斯科細亞",
+      "en": "Nova Scotia",
+      "ja": "ノバスコシア"
+     },
+     "bbox": [
+      43.37,
+      -66.33,
+      47.04,
+      -59.68
+     ]
+    },
+    {
+     "id": "nb",
+     "name": {
+      "zh-Hant": "新布倫瑞克",
+      "en": "New Brunswick",
+      "ja": "ニューブランズウィック"
+     },
+     "bbox": [
+      44.6,
+      -69.06,
+      48.07,
+      -63.77
+     ]
+    },
+    {
+     "id": "pe",
+     "name": {
+      "zh-Hant": "愛德華王子島",
+      "en": "Prince Edward Island",
+      "ja": "プリンスエドワードアイランド"
+     },
+     "bbox": [
+      45.95,
+      -64.42,
+      47.07,
+      -61.97
+     ]
+    },
+    {
+     "id": "nl",
+     "name": {
+      "zh-Hant": "紐芬蘭與拉布拉多",
+      "en": "Newfoundland and Labrador",
+      "ja": "ニューファンドランド・ラブラドール"
+     },
+     "bbox": [
+      46.61,
+      -67.8,
+      60.37,
+      -52.62
+     ]
+    },
+    {
+     "id": "north",
+     "name": {
+      "zh-Hant": "北部三地區（育空、西北、努納福特）",
+      "en": "Northern territories (Yukon, NWT, Nunavut)",
+      "ja": "北部準州（ユーコン・ノースウエスト・ヌナブト）"
+     },
+     "bbox": [
+      60.0,
+      -141.0,
+      83.1,
+      -61.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nl",
+   "name": {
+    "zh-Hant": "荷蘭",
+    "en": "Netherlands",
+    "ja": "オランダ"
+   },
+   "regions": [
+    {
+     "id": "all",
+     "name": {
+      "zh-Hant": "荷蘭全區",
+      "en": "All of the Netherlands",
+      "ja": "オランダ全域"
+     },
+     "bbox": [
+      50.75,
+      3.35,
+      53.56,
+      7.23
+     ]
+    }
+   ]
+  },
+  {
+   "id": "es",
+   "name": {
+    "zh-Hant": "西班牙",
+    "en": "Spain",
+    "ja": "スペイン"
+   },
+   "regions": [
+    {
+     "id": "peninsula",
+     "name": {
+      "zh-Hant": "西班牙本土（含休達、梅利利亞）",
+      "en": "Mainland Spain (incl. Ceuta, Melilla)",
+      "ja": "スペイン本土（セウタ・メリリャを含む）"
+     },
+     "bbox": [
+      35.2,
+      -9.4,
+      43.8,
+      4.35
+     ]
+    },
+    {
+     "id": "baleares",
+     "name": {
+      "zh-Hant": "巴利亞利群島",
+      "en": "Balearic Islands",
+      "ja": "バレアレス諸島"
+     },
+     "bbox": [
+      38.6,
+      1.15,
+      40.1,
+      4.35
+     ]
+    },
+    {
+     "id": "canarias",
+     "name": {
+      "zh-Hant": "加那利群島",
+      "en": "Canary Islands",
+      "ja": "カナリア諸島"
+     },
+     "bbox": [
+      27.6,
+      -18.2,
+      29.45,
+      -13.4
+     ]
+    }
+   ]
   }
  ]
 }
