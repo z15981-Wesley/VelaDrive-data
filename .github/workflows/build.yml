@@ -86,6 +86,7 @@ jobs:
           - { country: ca, part: all, only: "", source: north-america/canada }
           - { country: nl, part: all, only: "", source: europe/netherlands }
           - { country: es, part: all, only: "", source: europe/spain }
+          - { country: es, part: canarias, only: "canarias", source: africa/canary-islands }
     runs-on: ubuntu-latest
     timeout-minutes: 300
     env:
