@@ -143,9 +143,29 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          set -euo pipefail
           mkdir -p out prev
-          gh release download packs -p manifest.json -D prev 2>/dev/null || true
+          if gh release view packs >/dev/null 2>&1; then
+            # Without the previous manifest, a partial rebuild would drop every other country
+            # and the clean-up below would delete their packs: stop instead.
+            for i in 1 2 3; do
+              gh release download packs -p manifest.json -D prev --clobber && break
+              sleep 20
+            done
+            test -s prev/manifest.json || { echo "::error::Previous manifest unavailable; not publishing."; exit 1; }
+          fi
           python3 scripts/publish.py out prev/manifest.json
+          # Every pack the new manifest lists must be here (new) or already in the release.
+          python3 - <<'PY'
+          import json, os, subprocess
+          m = json.load(open("out/manifest.json"))
+          have = set(subprocess.run(["gh", "release", "view", "packs", "--json", "assets", "-q", ".assets[].name"],
+                                    capture_output=True, text=True).stdout.split())
+          missing = [r["file"] for c in m["countries"] for r in c["regions"]
+                     if not os.path.exists(os.path.join("out", r["file"])) and r["file"] not in have]
+          if missing:
+              raise SystemExit("Manifest lists packs that are not available: " + ", ".join(missing))
+          PY
       - name: Upload to the "packs" release
         env:
           GH_TOKEN: ${{ github.token }}
