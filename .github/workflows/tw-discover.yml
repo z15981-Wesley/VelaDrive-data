@@ -4,8 +4,6 @@ name: Discover Taiwan camera datasets
 # so the merge script can be written against their real formats.
 on:
   workflow_dispatch:
-  push:
-    paths: [".github/workflows/tw-discover.yml"]
 
 jobs:
   discover:
