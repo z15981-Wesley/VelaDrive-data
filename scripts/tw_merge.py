@@ -195,9 +195,62 @@ def kinmen():
     return out
 
 
-# Not added (checked 2026-11): Hualien publishes sections by mileage only, no coordinates; Kaohsiung,
-# Hsinchu County, Chiayi County and Pingtung portals don't answer outside Taiwan (GitHub runners).
-SOURCES = [taipei, taoyuan, taichung, changhua, kinmen]
+# Portals that refuse connections from outside Taiwan: copies downloaded in Taiwan are kept in
+# sources/local/ (refresh them from a Taiwan connection now and then; the data changes rarely).
+LOCAL = __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "..", "sources", "local")
+
+
+def local(name):
+    with open(__import__("os").path.join(LOCAL, name), "rb") as f:
+        return f.read()
+
+
+def chiayi_county():
+    out = []
+    for r in rows(local("chiayi_county.csv")):
+        what = next((v for k, v in r.items() if k and k.startswith("取締項目")), "")
+        if not re.search(r"超速|測速|區間", what or ""):
+            continue
+        p = latlon(r.get("座標緯度"), r.get("座標經度"))
+        if not p:
+            continue
+        place = (r.get("設置地點(路口或路段)") or "").strip()
+        out.append(row("嘉義縣", place, *p, (r.get("拍攝方向") or "").strip(), limit_of(r.get("速限")), "chiayi_county",
+                       dept="嘉義縣警察局", branch=r.get("管轄單位", ""), region=r.get("行政區", "")))
+    return out
+
+
+def hsinchu_county():
+    out = []
+    for r in rows(local("hsinchu_county_zone.csv")):
+        p = latlon(r.get("緯度"), r.get("經度"))
+        if not p:
+            continue
+        place = r.get("設置地點", "").strip()
+        direct = (r.get("拍攝方向") or "雙向").strip()
+        out.append(row("新竹縣", place, *p, direct + "(區間測速)", limit_of(r.get("速限")), "hsinchu_county",
+                       dept="新竹縣政府警察局", branch=r.get("轄區分局", ""), region=r.get("行政區", ""),
+                       zone_len=span_m(place)))
+    return out
+
+
+def kaohsiung_zones():
+    out = []
+    for r in rows(local("kaohsiung_zone.csv")):
+        p = latlon(r.get("座標緯N度"), r.get("座標經E度"))
+        if not p:
+            continue
+        place = r.get("地點", "").strip()
+        m = re.search(r"([東西南北])往([東西南北])", place) or re.search(r"往([東西南北])", place)
+        direct = (f"{m.group(1)}向{m.group(2)}" if m.lastindex == 2 else f"向{m.group(1)}") if m else "雙向"
+        out.append(row("高雄市", place, *p, direct + "(區間測速)", limit_of(r.get("速限")), "kaohsiung",
+                       dept="高雄市政府警察局", zone_len=length_m(r.get("偵側長度"))))
+    return out
+
+
+# Not added (checked 2026-11): Pingtung publishes place names only and Hualien mileage only (no
+# coordinates); Kaohsiung's technology-enforcement list has no speed cameras.
+SOURCES = [taipei, taoyuan, taichung, changhua, kinmen, chiayi_county, hsinchu_county, kaohsiung_zones]
 
 
 # ---- merge ---------------------------------------------------------------------------------------
