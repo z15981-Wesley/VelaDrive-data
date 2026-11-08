@@ -15,11 +15,7 @@ jobs:
         run: |
           set -u
           mkdir -p out
-          for q in 科技執法 區間平均速率 測速 照相 闖紅燈; do
-            curl -s -m 60 -G "https://data.gov.tw/api/v2/rest/dataset" --data-urlencode "q=$q" --data-urlencode "limit=100" -o "out/search_$q.json" || true
-            echo "== search $q: $(head -c 300 "out/search_$q.json")"
-          done
-          for id in 7320 178168 139129 100857 100856 170673 167749 151949 160171 130111 13908 38357 40476; do
+          for id in 100857 100856 151949 160171 167749 178161 144579 172801 178120 171349 172950 100855 27969 144578 172905 178143 104523 124716 104517; do
             curl -s -m 60 "https://data.gov.tw/api/v2/rest/dataset/$id" -o "out/meta_$id.json" || true
             echo "== dataset $id"
             python3 - "$id" <<'PY'
@@ -35,16 +31,35 @@ jobs:
               print(" -",fmt,url, dist.get("resourceDescription"))
               if not url: continue
               fn=f"out/{i}_{k}.{(fmt or 'bin').lower()}"
-              subprocess.run(["curl","-sL","-m","90","-o",fn,url])
+              rc=subprocess.run(["curl","-sL","-A","Mozilla/5.0","--retry","3","-m","180","-o",fn,url]).returncode; print("   curl rc",rc)
               try:
                   b=open(fn,"rb").read()
                   for enc in ("utf-8-sig","big5","cp950"):
                       try: t=b.decode(enc); break
                       except: t=None
                   print("   bytes",len(b),"enc",enc)
-                  print("   ", (t or repr(b[:300]))[:900].replace("\n","\n    "))
+                  print("   ", (t or repr(b[:300]))[:1500].replace("\n","\n    "))
               except Exception as e: print("   err",e)
           PY
+          done
+      - name: Kaohsiung and Nantou portals (CKAN)
+        run: |
+          for u in "https://data.kcg.gov.tw/api/3/action/package_show?id=c113" "https://data.kcg.gov.tw/api/3/action/package_show?id=113-7" "https://data.nantou.gov.tw/api/3/action/package_show?id=afbcb208-9101-11ef-b353-005056bfed9c"; do
+            echo "== $u"
+            curl -sL -A Mozilla/5.0 -m 120 "$u" | python3 -c "
+          import json,sys,subprocess
+          try: d=json.load(sys.stdin)['result']
+          except Exception as e: print('bad',e); sys.exit()
+          print(d.get('title'))
+          for r in d.get('resources',[]):
+              print(' -',r.get('format'),r.get('url'))
+              if (r.get('format') or '').upper() in ('CSV','JSON'):
+                  b=subprocess.run(['curl','-sL','-A','Mozilla/5.0','-m','120',r['url']],capture_output=True).stdout
+                  for enc in ('utf-8-sig','big5','cp950'):
+                      try: t=b.decode(enc); break
+                      except: t=None
+                  print('   ',(t or repr(b[:200]))[:1200])
+          "
           done
       - uses: actions/upload-artifact@v4
         with:
