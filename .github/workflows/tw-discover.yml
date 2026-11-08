@@ -1,0 +1,52 @@
+name: Discover Taiwan camera datasets
+
+# One-off: lists the files and first rows of candidate open datasets (科技執法, 區間測速, 國道),
+# so the merge script can be written against their real formats.
+on:
+  workflow_dispatch:
+  push:
+    paths: [".github/workflows/tw-discover.yml"]
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Look up datasets
+        run: |
+          set -u
+          mkdir -p out
+          for q in 科技執法 區間平均速率 測速 照相 闖紅燈; do
+            curl -s -m 60 -G "https://data.gov.tw/api/v2/rest/dataset" --data-urlencode "q=$q" --data-urlencode "limit=100" -o "out/search_$q.json" || true
+            echo "== search $q: $(head -c 300 "out/search_$q.json")"
+          done
+          for id in 7320 178168 139129 100857 100856 170673 167749 151949 160171 130111 13908 38357 40476; do
+            curl -s -m 60 "https://data.gov.tw/api/v2/rest/dataset/$id" -o "out/meta_$id.json" || true
+            echo "== dataset $id"
+            python3 - "$id" <<'PY'
+          import json,sys,subprocess
+          i=sys.argv[1]
+          try: d=json.load(open(f"out/meta_{i}.json"))
+          except Exception as e: print("bad meta",e); sys.exit()
+          r=d.get("result",d)
+          print("title:",r.get("title"),"| org:",r.get("publisherOrgName") or r.get("organization"),"| freq:",r.get("updateFrequency"))
+          for k,dist in enumerate(r.get("distribution",[])):
+              url=dist.get("resourceDownloadUrl") or dist.get("downloadURL")
+              fmt=dist.get("resourceFormat") or dist.get("format")
+              print(" -",fmt,url, dist.get("resourceDescription"))
+              if not url: continue
+              fn=f"out/{i}_{k}.{(fmt or 'bin').lower()}"
+              subprocess.run(["curl","-sL","-m","90","-o",fn,url])
+              try:
+                  b=open(fn,"rb").read()
+                  for enc in ("utf-8-sig","big5","cp950"):
+                      try: t=b.decode(enc); break
+                      except: t=None
+                  print("   bytes",len(b),"enc",enc)
+                  print("   ", (t or repr(b[:300]))[:900].replace("\n","\n    "))
+              except Exception as e: print("   err",e)
+          PY
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: discover
+          path: out
