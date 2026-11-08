@@ -1,65 +1,46 @@
 name: Discover Taiwan camera datasets
 
-# One-off: lists the files and first rows of candidate open datasets (科技執法, 區間測速, 國道),
-# so the merge script can be written against their real formats.
+# One-off diagnostics for scripts/tw_merge.py: column names and category counts of city sources.
 on:
   workflow_dispatch:
 
 jobs:
   discover:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - name: Look up datasets
+      - name: City categories
         run: |
-          set -u
-          mkdir -p out
-          for id in 100857 100856 151949 160171 167749 178161 144579 172801 178120 171349 172950 100855 27969 144578 172905 178143 104523 124716 104517; do
-            curl -s -m 60 "https://data.gov.tw/api/v2/rest/dataset/$id" -o "out/meta_$id.json" || true
-            echo "== dataset $id"
-            python3 - "$id" <<'PY'
-          import json,sys,subprocess
-          i=sys.argv[1]
-          try: d=json.load(open(f"out/meta_{i}.json"))
-          except Exception as e: print("bad meta",e); sys.exit()
-          r=d.get("result",d)
-          print("title:",r.get("title"),"| org:",r.get("publisherOrgName") or r.get("organization"),"| freq:",r.get("updateFrequency"))
-          for k,dist in enumerate(r.get("distribution",[])):
-              url=dist.get("resourceDownloadUrl") or dist.get("downloadURL")
-              fmt=dist.get("resourceFormat") or dist.get("format")
-              print(" -",fmt,url, dist.get("resourceDescription"))
-              if not url: continue
-              fn=f"out/{i}_{k}.{(fmt or 'bin').lower()}"
-              rc=subprocess.run(["curl","-sL","-A","Mozilla/5.0","--retry","3","-m","180","-o",fn,url]).returncode; print("   curl rc",rc)
-              try:
-                  b=open(fn,"rb").read()
-                  for enc in ("utf-8-sig","big5","cp950"):
-                      try: t=b.decode(enc); break
-                      except: t=None
-                  print("   bytes",len(b),"enc",enc)
-                  print("   ", (t or repr(b[:300]))[:1500].replace("\n","\n    "))
-              except Exception as e: print("   err",e)
+          python3 - <<'PY'
+          import csv, io, subprocess, collections
+          def get(u):
+              r = subprocess.run(["curl","-fsSL","-A","Mozilla/5.0","--connect-timeout","20","-m","90",u], capture_output=True)
+              b = r.stdout
+              for e in ("utf-8-sig","cp950","big5"):
+                  try: return b.decode(e)
+                  except: pass
+          srcs = {
+            "taipei": "https://data.taipei/api/dataset/745b8808-061f-4f5b-9a62-da1590c049a9/resource/5012e8ba-5ace-4821-8482-ee07c147fd0a/download",
+            "taoyuan": "https://opendata.tycg.gov.tw/api/dataset/46bd8de0-cb90-4149-a530-5f5b1751b450/resource/636bb62e-cc5b-4ad4-ac11-5849ad5c432d/download",
+            "taichung": "https://newdatacenter.taichung.gov.tw/api/v1/no-auth/resource.download?rid=b3f58c63-53b3-4c01-8203-2a7afa08bb13",
+          }
+          for name, u in srcs.items():
+              t = get(u) or ""
+              rows = list(csv.DictReader(io.StringIO(t)))
+              print("==", name, len(rows), "rows; columns:", list(rows[0].keys()) if rows else t[:300])
+              for col in rows[0].keys() if rows else []:
+                  c = collections.Counter(r.get(col,"") for r in rows)
+                  if len(c) < 40: print("  ", col, dict(c.most_common(25)))
+              for r in rows[:3]: print("   sample:", r)
           PY
-          done
-      - name: Kaohsiung and Nantou portals (CKAN)
+      - name: Hualien spreadsheet
         run: |
-          for u in "https://data.kcg.gov.tw/api/3/action/package_show?id=c113" "https://data.kcg.gov.tw/api/3/action/package_show?id=113-7" "https://data.nantou.gov.tw/api/3/action/package_show?id=afbcb208-9101-11ef-b353-005056bfed9c"; do
-            echo "== $u"
-            curl -sL -A Mozilla/5.0 -m 120 "$u" | python3 -c "
-          import json,sys,subprocess
-          try: d=json.load(sys.stdin)['result']
-          except Exception as e: print('bad',e); sys.exit()
-          print(d.get('title'))
-          for r in d.get('resources',[]):
-              print(' -',r.get('format'),r.get('url'))
-              if (r.get('format') or '').upper() in ('CSV','JSON'):
-                  b=subprocess.run(['curl','-sL','-A','Mozilla/5.0','-m','120',r['url']],capture_output=True).stdout
-                  for enc in ('utf-8-sig','big5','cp950'):
-                      try: t=b.decode(enc); break
-                      except: t=None
-                  print('   ',(t or repr(b[:200]))[:1200])
+          pip install --quiet openpyxl
+          curl -sSL -A Mozilla/5.0 -m 90 -o hl.xlsx 'https://ws.hl.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNTE4L3JlbGZpbGUvMjI2MjkvMTY3NDc2LzE0NjIzNjE3LWJmM2ItNGM0ZS04Y2QzLTk1NDNhZjUxNmFiMS54bHN4&n=6Iqx6JOu57ij6K2m5a%2bf5bGA6Kit572u5Y2A6ZaT5ris6YCf5Z%2b35rOV5Zyw6bue5LiA6Ka96KGoLnhsc3g%3d'
+          python3 -c "
+          import openpyxl
+          wb=openpyxl.load_workbook('hl.xlsx',data_only=True)
+          for ws in wb.worksheets:
+              print('== sheet',ws.title)
+              for r in list(ws.iter_rows(values_only=True))[:40]: print('  ',r)
           "
-          done
-      - uses: actions/upload-artifact@v4
-        with:
-          name: discover
-          path: out
