@@ -21,7 +21,6 @@ jobs:
       - name: Download and merge
         run: |
           set -euo pipefail
-          pip install --quiet openpyxl
           python3 scripts/tw_merge.py tw_speed_cameras.csv report.txt
           rows=$(wc -l < tw_speed_cameras.csv)
           echo "rows: $rows"

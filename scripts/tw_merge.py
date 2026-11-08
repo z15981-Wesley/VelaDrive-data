@@ -195,40 +195,9 @@ def kinmen():
     return out
 
 
-def hualien():
-    """Hualien publishes 區間測速 as a spreadsheet; read whichever sheet has coordinates."""
-    import openpyxl
-    url = ("https://ws.hl.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNTE4L3JlbGZpbGUvMjI2MjkvMTY3NDc2LzE0NjIzNjE3LWJmM2It"
-           "NGM0ZS04Y2QzLTk1NDNhZjUxNmFiMS54bHN4")
-    wb = openpyxl.load_workbook(io.BytesIO(fetch(url)), read_only=True, data_only=True)
-    out, seen = [], []
-    for ws in wb.worksheets:
-        header = None
-        for vals in ws.iter_rows(values_only=True):
-            vals = ["" if v is None else str(v).strip() for v in vals]
-            if header is None:
-                if any("緯" in v for v in vals) and any("經" in v for v in vals):
-                    header = vals
-                elif len(seen) < 6:
-                    seen.append("|".join(vals)[:120])
-                continue
-            r = dict(zip(header, vals))
-            lat = next((r[k] for k in header if "緯" in k), "")
-            lon = next((r[k] for k in header if "經" in k), "")
-            p = latlon(lat, lon)
-            if not p:
-                continue
-            place = next((r[k] for k in header if "地點" in k or "路段" in k), "")
-            direct = next((r[k] for k in header if "方向" in k), "") or "雙向"
-            limit = next((r[k] for k in header if "速限" in k), "")
-            out.append(row("花蓮縣", place, *p, direct + "(區間測速)", limit_of(limit), "hualien",
-                           dept="花蓮縣警察局", zone_len=span_m(place) or length_m(place)))
-    if not out:
-        raise RuntimeError("no coordinate rows; top rows: " + " / ".join(seen))
-    return out
-
-
-SOURCES = [taipei, taoyuan, taichung, changhua, kinmen, hualien]
+# Not added (checked 2026-11): Hualien publishes sections by mileage only, no coordinates; Kaohsiung,
+# Hsinchu County, Chiayi County and Pingtung portals don't answer outside Taiwan (GitHub runners).
+SOURCES = [taipei, taoyuan, taichung, changhua, kinmen]
 
 
 # ---- merge ---------------------------------------------------------------------------------------
